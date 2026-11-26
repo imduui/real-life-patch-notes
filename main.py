@@ -9,6 +9,8 @@ import os
 LINE = "v3.1.0: fixed a bug where the brain replayed embarrassing moments from 2009 at 3am instead of sleeping."
 
 def main():
+    if not LINE.strip() or len(LINE) > 160:
+        raise SystemExit("entry line must be 1-160 non-blank characters")
     os.makedirs("/output", exist_ok=True)
     path = "/output/entry.txt"
     with open(path, "w", encoding="utf-8") as f:
